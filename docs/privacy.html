@@ -18,11 +18,12 @@
 <body>
   <div class="badge">OPENTV</div>
   <h1>Privacy Policy</h1>
-  <p><em>Last updated: July 31, 2026</em></p>
+  <p><em>Last updated: August 1, 2026</em></p>
 
   <p><strong>The short version: your library stays on your device. The tracker needs no account and no
-  server. There is now an optional community you can join — if you join it, the things you publish (your
-  handle, your comments, your ratings) are stored on a server. Your watch history never is.</strong></p>
+  server. There is now an optional community you can join — if you join it, the things your profile shows
+  are stored on a server: your handle, your comments, your ratings, how much you have watched in total, and
+  which shows and films you watch. Your episode-by-episode history, with its dates, is never sent.</strong></p>
 
   <h2>What data OpenTV stores on your phone</h2>
   <p>Your library — shows, movies, watch history, ratings, emotions, comments, lists, profile details and
@@ -52,12 +53,22 @@
   reconnection sends only the numeric TV Time friend identifiers that were already inside your own export,
   so people who held the matching identifier can be matched with you.</p>
 
-  <p><strong>What is never sent to our server, whether or not you join:</strong> your watch history — no
-  episode, no movie, no progress, no dates; the TV Time export file itself; the TV Time email address or
-  password; your imported private comments unless you explicitly choose to publish them; your library
-  statistics; your location; your contacts. The server has no table for a watched episode, and that is a
-  design decision, not an omission: if the server disappeared tomorrow, you would keep your complete
-  history and the app would still work.</p>
+  <h2>What joining publishes</h2>
+  <p>A profile is meant to be looked at, so joining publishes what a profile shows: your handle and display
+  name, your comments and ratings, your lists, the total number of episodes you have watched and the total
+  time that comes to, and which shows and films are in your library — including which of them you have
+  marked as favourites. Those totals and titles are recomputed on your phone and replace what is on the
+  server, so removing a show from your library removes it from your profile.</p>
+
+  <p><strong>What is never sent to our server, whether or not you join:</strong> your episode-by-episode
+  history — which episode, on which date, in which order, how many times; the TV Time export file itself;
+  the TV Time email address or password; your location; your contacts. The server has no table for a
+  watched episode, and that is a design decision rather than an omission. The distinction is deliberate: a
+  total says how much you watch, a history says when you were home, and only the first is published. If the
+  server disappeared tomorrow you would keep your complete history and the app would still work.</p>
+
+  <p>If you never join the community, nothing at all leaves your phone except requests to TheTVDB and TMDB
+  for artwork and show information.</p>
 
   <p>The community server runs on <a href="https://www.cloudflare.com">Cloudflare</a> (Workers and D1),
   which processes and stores this data on our behalf. Cloudflare also keeps standard, short-lived request
