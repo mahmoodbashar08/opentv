@@ -18,20 +18,58 @@
 <body>
   <div class="badge">OPENTV</div>
   <h1>Privacy Policy</h1>
-  <p><em>Last updated: July 4, 2026</em></p>
+  <p><em>Last updated: July 31, 2026</em></p>
 
-  <p><strong>The short version: everything stays on your device. We collect nothing.</strong></p>
+  <p><strong>The short version: your library stays on your device. The tracker needs no account and no
+  server. There is now an optional community you can join — if you join it, the things you publish (your
+  handle, your comments, your ratings) are stored on a server. Your watch history never is.</strong></p>
 
-  <h2>What data OpenTV stores</h2>
+  <h2>What data OpenTV stores on your phone</h2>
   <p>Your library — shows, movies, watch history, ratings, emotions, comments, lists, profile details and
-  photos — is stored in a local database on your phone. It is never uploaded anywhere. OpenTV has no
-  servers, no user accounts, no analytics and no advertising.</p>
+  photos — is stored in a local database on your phone. That database is the app's only source of truth.
+  It is never uploaded anywhere, and it is not backed up to us: the optional iCloud backup goes to your
+  own iCloud account, which we cannot read. There are no analytics and no advertising.</p>
+
+  <h2>The OpenTV community — optional, and off unless you join</h2>
+  <p>OpenTV can connect to a community where people comment on episodes, rate them, follow each other and
+  publish lists. <strong>Joining is entirely optional.</strong> If you never join, the app never contacts
+  our server at all, and it works exactly as described above — every screen, every statistic, every
+  feature of the tracker.</p>
+
+  <p>If you do join, by signing in with Apple or Google, the following is stored on our server:</p>
+  <ul>
+    <li>a profile: your handle, display name, avatar, bio and links, and whether your profile is private;</li>
+    <li>an identity record from Apple or Google that lets you sign back in. We receive an opaque account
+      identifier from them — not your Apple or Google password;</li>
+    <li>the comments and episode ratings you post through the community, and the likes you give;</li>
+    <li>who you follow, who follows you, and anyone you block;</li>
+    <li>lists you choose to publish;</li>
+    <li>your notifications, and any reports you file or that are filed about your content.</li>
+  </ul>
+
+  <p>If you imported a TV Time export, the app can also offer to bring your old TV Time comments across, and
+  to reconnect you with the friends you had there. Both are offered and neither happens by itself. The
+  reconnection sends only the numeric TV Time friend identifiers that were already inside your own export,
+  so people who held the matching identifier can be matched with you.</p>
+
+  <p><strong>What is never sent to our server, whether or not you join:</strong> your watch history — no
+  episode, no movie, no progress, no dates; the TV Time export file itself; the TV Time email address or
+  password; your imported private comments unless you explicitly choose to publish them; your library
+  statistics; your location; your contacts. The server has no table for a watched episode, and that is a
+  design decision, not an omission: if the server disappeared tomorrow, you would keep your complete
+  history and the app would still work.</p>
+
+  <p>The community server runs on <a href="https://www.cloudflare.com">Cloudflare</a> (Workers and D1),
+  which processes and stores this data on our behalf. Cloudflare also keeps standard, short-lived request
+  logs, which may include an IP address.</p>
 
   <h2>Network requests</h2>
-  <p>The app makes network requests only to <a href="https://www.themoviedb.org">The Movie Database
-  (TMDB)</a>, to fetch show and movie information and artwork. These requests contain only the title or id
-  being looked up — never your identity or your library. This product uses the TMDB API but is not endorsed
-  or certified by TMDB.</p>
+  <p>The app fetches show and movie information and artwork from
+  <a href="https://thetvdb.com">TheTVDB</a> and <a href="https://www.themoviedb.org">The Movie Database
+  (TMDB)</a>. These requests contain only the title or id being looked up — never your identity and never
+  your library. This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+  <p>If you have joined the community, the app also talks to the OpenTV community server described above.
+  If you have not, it does not.</p>
 
   <h2>Importing your TV Time export</h2>
   <p>When you import a TV Time GDPR export, the file is read and processed entirely on your device. During
@@ -40,10 +78,25 @@
 
   <h2>Your data, your control</h2>
   <p>You can export your complete library at any time from Settings — as a TV Time-format ZIP or a raw JSON
-  backup — and you can erase everything with one tap. Deleting the app deletes all data with it.</p>
+  backup — and you can erase everything with one tap. Deleting the app deletes all local data with it.</p>
+
+  <p>If you have joined the community, Settings → Account offers two separate things:</p>
+  <ul>
+    <li><strong>Leave the community</strong> signs this device out. Nothing is deleted — your profile and
+      your comments remain, and you can sign back in whenever you like.</li>
+    <li><strong>Delete my community account</strong> permanently removes your community presence: the
+      sign-in identity (so signing in again creates a new, empty profile), your comments, likes and
+      ratings, your follows and blocks, your published lists and your notifications. Your profile record
+      is stripped of all personal data immediately and the empty shell is purged afterwards.
+      <strong>Your library, watch history and imported data stay on your phone — deleting the community
+      account does not touch them.</strong></li>
+  </ul>
+  <p>If you would rather ask us, write to the address below and we will delete the account for you.</p>
 
   <h2>Children</h2>
-  <p>OpenTV does not collect personal information from anyone, including children.</p>
+  <p>The tracker collects no personal information from anyone, including children. The community contains
+  content written by other people and is not intended for children under 13; you must be at least 13 to
+  join it.</p>
 
   <h2>Changes</h2>
   <p>If this policy ever changes, the updated version will be published at this address.</p>
