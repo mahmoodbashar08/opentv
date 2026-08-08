@@ -18,18 +18,32 @@
 <body>
   <div class="badge">OPENTV</div>
   <h1>Privacy Policy</h1>
-  <p><em>Last updated: August 1, 2026</em></p>
+  <p><em>Last updated: August 9, 2026</em></p>
 
   <p><strong>The short version: your library stays on your device. The tracker needs no account and no
   server. There is now an optional community you can join — if you join it, the things your profile shows
-  are stored on a server: your handle, your comments, your ratings, how much you have watched in total, and
-  which shows and films you watch. Your episode-by-episode history, with its dates, is never sent.</strong></p>
+  are stored on a server: your handle, your comments, your ratings and reactions, how much you have watched
+  in total, and which shows and films you watch. Your episode-by-episode watch history, with its dates, is
+  never sent.</strong></p>
 
   <h2>What data OpenTV stores on your phone</h2>
   <p>Your library — shows, movies, watch history, ratings, emotions, comments, lists, profile details and
   photos — is stored in a local database on your phone. That database is the app's only source of truth.
   It is never uploaded anywhere, and it is not backed up to us: the optional iCloud backup goes to your
-  own iCloud account, which we cannot read. There are no analytics and no advertising.</p>
+  own iCloud account, which we cannot read. There is no advertising, and if you have not joined the
+  community there are no analytics either.</p>
+
+  <h2>Analytics — only if you join the community</h2>
+  <p>When you join the community, and only then, the app turns on anonymous usage analytics
+  (Google Firebase Analytics). Every automatic collection setting Firebase offers ships switched off; joining
+  is the single thing that enables it. If you never join, no analytics event is ever recorded.</p>
+  <p><strong>We record the shape of what you do, never the content of it.</strong> That means which control
+  you tapped, which screen you opened and how many items were involved — and never a show or film title, an
+  episode, an identifier, a handle, a rating, or anything you typed. Screens are recorded by their pattern,
+  so a visit to a show page is logged as <code>show/[id]</code> and never as the show you were looking at.
+  This is deliberate: a per-title event stream would rebuild at Google exactly the watch history the rest of
+  this policy keeps on your phone.</p>
+  <p>Analytics stops when you leave the community.</p>
 
   <h2>The OpenTV community — optional, and off unless you join</h2>
   <p>OpenTV can connect to a community where people comment on episodes, rate them, follow each other and
@@ -37,16 +51,32 @@
   our server at all, and it works exactly as described above — every screen, every statistic, every
   feature of the tracker.</p>
 
-  <p>If you do join, by signing in with Apple or Google, the following is stored on our server:</p>
+  <p>If you do join — by signing in with Apple or Google, or by registering an email address and password —
+  the following is stored on our server:</p>
   <ul>
     <li>a profile: your handle, display name, avatar, bio and links, and whether your profile is private;</li>
-    <li>an identity record from Apple or Google that lets you sign back in. We receive an opaque account
-      identifier from them — not your Apple or Google password;</li>
+    <li>an identity record that lets you sign back in. From Apple or Google we receive an opaque account
+      identifier — not your Apple or Google password. If you register with an email address, we store that
+      address and a one-way hash of your password, never the password itself;</li>
     <li>the comments and episode ratings you post through the community, and the likes you give;</li>
+    <li><strong>the emotions you pick for an episode</strong> (the "how did that make you feel" reaction)
+      and <strong>your favourite-character votes</strong>, which together produce the percentages everyone
+      sees on an episode;</li>
     <li>who you follow, who follows you, and anyone you block;</li>
     <li>lists you choose to publish;</li>
-    <li>your notifications, and any reports you file or that are filed about your content.</li>
+    <li>your notifications, and any reports you file or that are filed about your content;</li>
+    <li>a push notification token for each device you enable notifications on, so we can tell that device
+      when someone replies to you. It identifies the installation, not you, and is deleted when the
+      notification service tells us the app is gone;</li>
+    <li>any photo attached to a comment you post.</li>
   </ul>
+
+  <p><strong>Ratings, emotions and character votes name the episode they are about.</strong> A rating is
+  meaningless without knowing what was rated, so these records carry the show, the season and the episode
+  number — and by posting one you are saying, publicly, that you watched it. They are the only per-episode
+  records that ever reach our server, they exist only for episodes you deliberately rated or reacted to,
+  and they carry no date. That is different in kind from your watch history, which is described below and
+  is never sent.</p>
 
   <p>If you imported a TV Time export, the app can also offer to bring your old TV Time comments across, and
   to reconnect you with the friends you had there. Both are offered and neither happens by itself. The
@@ -61,7 +91,8 @@
   server, so removing a show from your library removes it from your profile.</p>
 
   <p><strong>What is never sent to our server, whether or not you join:</strong> your episode-by-episode
-  history — which episode, on which date, in which order, how many times; the TV Time export file itself;
+  watch history — which episode you watched, on which date, in which order, how many times; the TV Time
+  export file itself;
   the TV Time email address or password; your location; your contacts. The server has no table for a
   watched episode, and that is a design decision rather than an omission. The distinction is deliberate: a
   total says how much you watch, a history says when you were home, and only the first is published. If the
@@ -70,9 +101,18 @@
   <p>If you never join the community, nothing at all leaves your phone except requests to TheTVDB and TMDB
   for artwork and show information.</p>
 
-  <p>The community server runs on <a href="https://www.cloudflare.com">Cloudflare</a> (Workers and D1),
-  which processes and stores this data on our behalf. Cloudflare also keeps standard, short-lived request
-  logs, which may include an IP address.</p>
+  <h2>Who else handles community data</h2>
+  <p>These are the only companies that process anything, and only for people who joined:</p>
+  <ul>
+    <li><strong>Cloudflare</strong> (Workers, D1 and R2) runs the server and stores everything listed above.
+      It also keeps standard, short-lived request logs, which may include an IP address.</li>
+    <li><strong>Expo</strong> delivers push notifications. A notification passes through their service and
+      carries who did the thing and what kind of thing it was — never the text of a comment.</li>
+    <li><strong>Resend</strong> sends the confirmation and password-reset emails, and therefore handles your
+      email address. It is used only if you signed up with an email address.</li>
+    <li><strong>Google Firebase</strong> receives the anonymous analytics described above, and Apple and
+      Google carry the notifications on to your device.</li>
+  </ul>
 
   <h2>Network requests</h2>
   <p>The app fetches show and movie information and artwork from
@@ -96,8 +136,9 @@
     <li><strong>Leave the community</strong> signs this device out. Nothing is deleted — your profile and
       your comments remain, and you can sign back in whenever you like.</li>
     <li><strong>Delete my community account</strong> permanently removes your community presence: the
-      sign-in identity (so signing in again creates a new, empty profile), your comments, likes and
-      ratings, your follows and blocks, your published lists and your notifications. Your profile record
+      sign-in identity (so signing in again creates a new, empty profile), your comments and any photos
+      attached to them, your likes, ratings, emotions and character votes, your follows and blocks, your
+      published lists, your notifications and your push tokens. Your profile record
       is stripped of all personal data immediately and the empty shell is purged afterwards.
       <strong>Your library, watch history and imported data stay on your phone — deleting the community
       account does not touch them.</strong></li>
